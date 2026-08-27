@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<!-- Google Analytics GA4 -->
+<script>
+// GA lastes kun hvis bruker har godtatt analyse
+(function(){
+  var consent = '';
+  try{ consent = localStorage.getItem('rsv_consent_v2') || ''; }catch(e){}
+  if(consent === 'analytics' || consent === 'all'){
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="description" content="Bestill radonmåling med sporfilm fra Radon Sør-Vest. Godkjent av DSA, sendes til hele landet. Enkelt, pålitelig og med fullstendig analyserapport.">
+<link rel="canonical" href="https://radon-sorvest.no/radonmaling">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Radonmåling, Radon Sør-Vest AS</title>
+<style>
+
+  :root {
+    --bg:#F2F2F0;--surface:#FFFFFF;--surface2:#E8E8E5;
+    --border:#D4D4D0;--text:#1A1A18;--muted:#6B6B68;
+    --faint:#9A9A96;--accent:#C4622A;--accent2:#E8835A;
+    --dark:#3A3530;--dark2:#4A4540;--radius:10px;--radius-lg:16px;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:16px;}
+  a{color:inherit;text-decoration:none;}
+  .container{max-width:1080px;margin:0 auto;padding:0 24px;}
+  section{padding:80px 0;}
+  section.tight{padding:56px 0;}
+  .topbar{background:var(--dark);color:#A8A4A0;font-size:12px;padding:8px 24px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;}
+  .topbar strong{color:var(--accent2);}
+  .topbar a{color:#C0BCB8;}
+  .topbar a:hover{color:#fff;}
+  nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px;}
+  .nav-logo img{height:46px;width:auto;display:block;}
+  .nav-links{display:flex;gap:4px;list-style:none;}
+  .nav-links a{font-size:13px;color:var(--muted);padding:6px 11px;border-radius:8px;transition:background 0.15s,color 0.15s;white-space:nowrap;}
+  .nav-links a:hover{background:var(--surface2);color:var(--text);}
+  .nav-cta{background:var(--accent)!important;color:#fff!important;font-weight:600;border-radius:8px;padding:8px 18px!important;}
+  .nav-cta:hover{background:#A8501F!important;}
+  .btn{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;padding:11px 22px;border-radius:9px;transition:all 0.15s;cursor:pointer;border:none;}
+  .btn-primary{background:var(--accent);color:#fff;}
+  .btn-primary:hover{background:#A8501F;}
+  .btn-ghost{background:rgba(255,255,255,0.1);color:#E8E4E0;border:0.5px solid rgba(255,255,255,0.2);}
+  .section-label{font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);margin-bottom:10px;}
+  h2{font-size:clamp(22px,3vw,32px);font-weight:700;line-height:1.2;letter-spacing:-0.3px;color:var(--text);margin-bottom:14px;}
+  h3{font-size:18px;font-weight:700;margin-bottom:10px;color:var(--text);}
+  .section-lead{font-size:16px;color:var(--muted);line-height:1.7;max-width:540px;margin-bottom:40px;}
+  /* HERO */
+  .hero{position:relative;overflow:hidden;min-height:400px;display:flex;flex-direction:column;}
+  .hero-bg{position:absolute;inset:0;background-image:url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1600&q=80&auto=format&fit=crop");background-size:cover;background-position:center 50%;filter:brightness(0.22) saturate(0.3) blur(3px);transform:scale(1.04);}
+  .hero-inner{position:relative;z-index:2;max-width:1080px;margin:0 auto;padding:80px 24px 70px;width:100%;}
+  .hero-eyebrow{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--accent2);background:rgba(196,98,42,0.15);border:0.5px solid rgba(196,98,42,0.35);padding:4px 12px;border-radius:20px;margin-bottom:18px;}
+  .hero h1{font-size:clamp(28px,4vw,48px);font-weight:700;line-height:1.12;color:#fff;margin-bottom:16px;letter-spacing:-0.5px;}
+  .hero h1 em{color:var(--accent2);font-style:normal;}
+  .hero-sub{font-size:16px;color:#C0BCB8;line-height:1.75;margin-bottom:28px;max-width:500px;}
+  /* TRUST */
+  .trust-item-single{padding:22px 18px;border-right:1px solid var(--border);display:flex;align-items:center;gap:13px;}
+  .trust-icon{width:36px;height:36px;background:var(--bg);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;}
+  .trust-title{font-size:13px;font-weight:600;color:var(--text);}
+  .trust-sub{font-size:11px;color:var(--muted);margin-top:1px;}
+  /* CARDS */
+  .info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:48px;}
+  .info-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px 24px;position:relative;}
+  .info-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent);border-radius:var(--radius-lg) var(--radius-lg) 0 0;}
+  .info-icon{font-size:28px;margin-bottom:14px;}
+  .info-card p{font-size:14px;color:var(--muted);line-height:1.65;}
+  /* FORM */
+  .form-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:40px;}
+  .form-wrap h2{margin-bottom:6px;}
+  .form-wrap .form-lead{font-size:15px;color:var(--muted);margin-bottom:28px;}
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .form-full{grid-column:1/-1;}
+  .field{display:flex;flex-direction:column;gap:6px;}
+  .field label{font-size:12px;font-weight:600;color:var(--muted);letter-spacing:0.3px;}
+  .field input,.field textarea,.field select{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:11px 14px;font-size:14px;color:var(--text);outline:none;transition:border-color 0.15s;font-family:inherit;resize:vertical;appearance:none;}
+  .field input:focus,.field textarea:focus,.field select:focus{border-color:var(--accent);}
+  .field input::placeholder,.field textarea::placeholder{color:var(--faint);}
+  .form-note{font-size:12px;color:var(--faint);margin-top:4px;}
+  /* UTLEIE */
+  .utleie-box{background:var(--dark2);border-radius:var(--radius-lg);padding:40px 36px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+  .utleie-text h2{color:#fff;}
+  .utleie-text p{font-size:15px;color:#9A9590;line-height:1.75;margin-bottom:14px;}
+  .utleie-checks{display:flex;flex-direction:column;gap:12px;}
+  .check-item{display:flex;align-items:flex-start;gap:12px;font-size:14px;color:#C0BCB8;}
+  .check-icon{width:22px;height:22px;background:rgba(196,98,42,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;margin-top:1px;}
+  /* LEVEL */
+  .level-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px 28px;margin-top:36px;}
+  .level-bar{height:14px;border-radius:99px;background:linear-gradient(to right,#4A8C60 0%,#4A8C60 20%,#C4622A 20%,#C4622A 46%,#8B1A00 46%,#8B1A00 100%);}
+  .level-markers{display:flex;justify-content:space-between;font-size:11px;color:var(--faint);margin-top:6px;margin-bottom:20px;}
+  .level-items{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .level-item{padding:16px;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface);}
+  .level-item.green{border-color:#4A8C6055;background:#f0faf4;}
+  .level-item.orange{border-color:#C4622A55;background:#fdf4ef;}
+  .level-item.red{border-color:#8B1A0055;background:#fdf0ee;}
+  .level-badge{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;margin-bottom:8px;text-transform:uppercase;}
+  .green .level-badge{background:#4A8C6022;color:#2A6C44;}
+  .orange .level-badge{background:#C4622A22;color:#A04818;}
+  .red .level-badge{background:#8B1A0022;color:#8B1A00;}
+  .level-item h4{font-size:14px;font-weight:700;margin-bottom:4px;color:var(--text);}
+  .level-item p{font-size:12px;color:var(--muted);line-height:1.5;}
+  /* CONTACT */
+  .contact-bg{background:var(--dark);}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
+  .contact-info h2{color:#fff;}
+  .contact-info .section-lead{color:#B0ACA8;max-width:100%;}
+  .contact-detail{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid #5A5550;font-size:14px;color:#C0BCB8;}
+  .contact-detail:last-child{border-bottom:none;}
+  .contact-icon{width:36px;height:36px;background:rgba(196,98,42,0.15);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+  .contact-detail a{color:var(--accent2);}
+  .contact-form .field input,.contact-form .field textarea{background:rgba(255,255,255,0.08);border-color:#5A5550;color:#F0ECE8;}
+  .contact-form .field input::placeholder,.contact-form .field textarea::placeholder{color:#7A7570;}
+  .contact-form .field label{color:#9A9590;}
+  .contact-form .field input:focus,.contact-form .field textarea:focus{border-color:var(--accent);}
+  .contact-form .form-note{color:#6A6560;}
+  /* FOOTER */
+  footer{background:var(--dark);border-top:1px solid #4A4540;padding:48px 24px 0;}
+  .footer-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:36px;border-bottom:1px solid #4A4540;}
+  .footer-brand p{font-size:13px;color:#B8B4AF;line-height:1.7;margin-top:10px;}
+  .footer-col h5{font-size:12px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:#A8A39D;margin-bottom:14px;}
+  .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:9px;}.footer-col li{font-size:13px;color:#B8B4AF;}
+  .footer-col a{font-size:13px;color:#B8B4AF;transition:color 0.15s;}
+  .footer-col a:hover{color:var(--accent2);}
+  .footer-trust{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);}
+  .footer-trust-item{padding:20px 18px;border-right:1px solid #4A4540;display:flex;align-items:center;gap:12px;}
+  .footer-trust-item:last-child{border-right:none;}
+  .ft-icon{width:32px;height:32px;background:rgba(196,98,42,0.12);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
+  .ft-title{font-size:12px;font-weight:600;color:#D0CCC8;}
+  .ft-sub{font-size:11px;color:#A8A39D;margin-top:1px;}
+  .footer-bottom{max-width:1080px;margin:0 auto;padding:18px 0;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#9A9590;flex-wrap:wrap;gap:8px;}
+  @media(max-width:768px){
+    .info-grid,.level-items,.utleie-box,.contact-grid,.form-grid{grid-template-columns:1fr;}
+    .form-full{grid-column:auto;}
+    .footer-inner,.footer-trust{grid-template-columns:1fr 1fr;}
+    .footer-trust-item:nth-child(2){border-right:none;}
+    .footer-trust-item:nth-child(3){border-top:1px solid #4A4540;border-right:0.5px solid #4A4540;}
+    .footer-trust-item:nth-child(4){border-top:1px solid #4A4540;border-right:none;}
+    nav .nav-links{display:none;}
+  }
+
+  .main-hero{min-height:560px;}
+  .main-hero .hero-inner{padding:110px 24px 100px;}
+  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .service-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px 24px;transition:box-shadow 0.2s,transform 0.2s;position:relative;overflow:hidden;display:flex;flex-direction:column;}
+  .service-card:hover{box-shadow:0 8px 32px rgba(0,0,0,0.08);transform:translateY(-2px);}
+  .service-card.featured{background:var(--surface2);}
+  .service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent);opacity:0;transition:opacity 0.2s;}
+  .service-card:hover::before,.service-card.featured::before{opacity:1;}
+  .service-icon{width:44px;height:44px;background:var(--bg);border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:18px;flex-shrink:0;}
+  .service-card.featured .service-icon{background:#DDDBD8;}
+  .service-card h3{font-size:17px;font-weight:700;margin-bottom:10px;color:var(--text);}
+  .service-card p{font-size:14px;color:var(--muted);line-height:1.65;margin-bottom:12px;flex:1;}
+  .service-link{display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:600;color:var(--accent);margin-top:auto;}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+  .about-visual{background:var(--dark2);border-radius:var(--radius-lg);padding:36px;border:1px solid #5A5550;}
+  .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .stat-box{background:var(--dark);border-radius:var(--radius);padding:20px;border:1px solid #5A5550;}
+  .stat-n{font-size:28px;font-weight:700;color:var(--accent2);line-height:1;margin-bottom:4px;}
+  .stat-l{font-size:12px;color:#9A9590;line-height:1.4;}
+  .about-address{margin-top:24px;padding:18px;background:var(--dark);border:1px solid #5A5550;border-radius:var(--radius);font-size:13px;display:flex;flex-direction:column;gap:6px;}
+  .about-text p{font-size:15px;color:var(--muted);line-height:1.75;margin-bottom:16px;}
+  .faq-bg{background:var(--surface);}
+  .faq-list{display:flex;flex-direction:column;gap:10px;margin-top:36px;}
+  .faq-item{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
+  .faq-q{width:100%;background:none;border:none;padding:18px 22px;text-align:left;font-size:15px;font-weight:600;color:var(--text);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;font-family:inherit;}
+  .faq-q:hover{background:var(--surface2);}
+  .faq-arrow{font-size:18px;color:var(--accent);transition:transform 0.2s;flex-shrink:0;}
+  .faq-item.open .faq-arrow{transform:rotate(45deg);}
+  .faq-a{display:none;padding:16px 22px 18px;font-size:14px;color:var(--muted);line-height:1.7;border-top:1px solid var(--border);}
+  .faq-item.open .faq-a{display:block;}
+  @media(max-width:768px){.services-grid,.about-grid{grid-template-columns:1fr;}}
+
+
+  .nav-dropdown{position:relative;}
+  .nav-dropdown>a{display:inline-flex;align-items:center;gap:3px;}
+  .nav-dropdown::after{content:"";position:absolute;top:100%;left:0;width:100%;height:10px;}
+  .dropdown-menu{display:none;position:absolute;top:100%;left:0;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:6px 0;min-width:180px;box-shadow:0 4px 16px rgba(0,0,0,0.12);z-index:300;list-style:none;margin-top:8px;}
+  .dropdown-menu::before{content:"";position:absolute;top:-10px;left:0;width:100%;height:10px;}
+  .dropdown-menu li a{display:block;padding:10px 18px;font-size:13px;color:var(--muted);white-space:nowrap;}
+  .dropdown-menu li a:hover{background:var(--surface2);color:var(--text);}
+  .nav-dropdown:hover .dropdown-menu{display:block;}
+
+
+  /* Page rhythm */
+  .prose-section{padding:100px 0;}
+  .prose-section + .prose-section{padding-top:0;}
+
+  /* Big stat */
+  .big-stat{font-size:clamp(48px,7vw,80px);font-weight:800;line-height:1;color:var(--accent);letter-spacing:-2px;}
+  .big-stat-label{font-size:15px;color:var(--muted);margin-top:6px;line-height:1.5;}
+
+  /* Inline check list */
+  .prose-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin:24px 0;}
+  .prose-list li{display:flex;align-items:flex-start;gap:10px;font-size:15px;color:var(--muted);line-height:1.6;}
+  .prose-list li::before{content:"";display:inline-block;width:20px;height:20px;min-width:20px;border-radius:50%;background:rgba(196,98,42,0.12);background-image:url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23C4622A' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center;margin-top:2px;}
+
+  /* Step timeline */
+  .timeline{display:flex;flex-direction:column;gap:0;}
+  .timeline-item{display:grid;grid-template-columns:64px 1fr;gap:24px;position:relative;}
+  .timeline-item:not(:last-child)::before{content:"";position:absolute;left:31px;top:64px;width:2px;bottom:-24px;background:var(--border);}
+  .timeline-num{width:64px;height:64px;border-radius:50%;background:var(--accent);color:#fff;font-size:22px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;z-index:1;}
+  .timeline-body{padding:12px 0 48px;}
+  .timeline-body h3{font-size:20px;font-weight:700;margin-bottom:10px;}
+  .timeline-body p{font-size:15px;color:var(--muted);line-height:1.8;}
+
+  /* Level bar visual */
+  .level-visual{display:flex;flex-direction:column;gap:12px;margin-top:28px;}
+  .level-visual-row{display:flex;align-items:center;gap:16px;}
+  .level-bar-fill{height:10px;border-radius:5px;}
+  .level-label{font-size:14px;font-weight:600;min-width:90px;}
+  .level-desc{font-size:13px;color:var(--muted);}
+
+  /* Dark CTA banner */
+  .dark-banner{background:var(--dark);border-radius:24px;padding:64px;margin:80px auto;max-width:1080px;}
+  .dark-banner h2{color:#fff;font-size:clamp(24px,3.5vw,40px);margin-bottom:16px;}
+  .dark-banner p{color:#9A9590;font-size:16px;line-height:1.7;max-width:500px;}
+
+  /* Split layout */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+  .split.reverse{direction:rtl;}
+  .split.reverse > *{direction:ltr;}
+
+  /* Pull quote */
+  .pull-quote{border-left:3px solid var(--accent);padding:4px 24px;margin:32px 0;}
+  .pull-quote p{font-size:20px;font-weight:500;color:var(--text);line-height:1.6;font-style:italic;}
+
+  @media(max-width:768px){
+    .split{grid-template-columns:1fr;}
+    .dark-banner{padding:36px 24px;}
+    .prose-section{padding:64px 0;}
+  }
+
+
+  /* === MOBILOPTIMALISERING === */
+  @media(max-width:768px){
+    /* Nav */
+    nav{padding:0 16px;height:60px;}
+    .nav-links{display:none !important;}
+    .nav-logo img{height:38px;}
+
+    /* Topbar */
+    .topbar{font-size:11px;padding:6px 16px;gap:6px;}
+
+    /* Hero */
+    .hero-inner{padding:60px 16px 50px !important;}
+    .hero h1{font-size:clamp(26px,8vw,40px) !important;}
+    .hero-sub{font-size:14px !important;}
+    .main-hero{min-height:320px !important;}
+
+    /* Container */
+    .container{padding:0 16px !important;}
+    section{padding:48px 0 !important;}
+    section.tight{padding:36px 0 !important;}
+
+    /* Grids → 1 kolonne */
+    .services-grid,.about-grid,.info-grid,.level-items,
+    .contact-grid,.form-grid,.stat-grid{grid-template-columns:1fr !important;}
+    .form-full{grid-column:auto !important;}
+
+    /* Footer */
+    .footer-inner{grid-template-columns:1fr 1fr !important;}
+    .footer-trust{grid-template-columns:1fr 1fr !important;}
+    .footer-trust-item:nth-child(2){border-right:none !important;}
+    .footer-trust-item:nth-child(3){border-top:1px solid #4A4540;border-right:0.5px solid #4A4540 !important;}
+    .footer-trust-item:nth-child(4){border-top:1px solid #4A4540;border-right:none !important;}
+
+    /* Trust strip */
+    div[style*="grid-template-columns:repeat(4"]{grid-template-columns:1fr 1fr !important;}
+    div[style*="grid-template-columns:repeat(2"]{grid-template-columns:1fr !important;}
+
+    /* Tiltak CTA */
+    section[style*="border-radius:24px"]{margin:0 12px 48px !important;padding:36px 24px !important;}
+
+    /* Utleie-box */
+    .utleie-box{grid-template-columns:1fr !important;padding:28px 20px !important;gap:24px !important;}
+
+    /* hva-er-radon grid */
+    div[style*="grid-template-columns:1fr 1fr;gap:64px"]{grid-template-columns:1fr !important;gap:32px !important;}
+    /* Høyre kolonne padding-top nullstilles på mobil */
+    div[style*="padding-top:80px"]{padding-top:0 !important;}
+
+    /* Tre-kolonne grids */
+    div[style*="grid-template-columns:1fr 1fr 1fr"]{grid-template-columns:1fr !important;}
+    div[style*="grid-template-columns:repeat(3"]{grid-template-columns:1fr !important;}
+
+    /* Ansatte grid */
+    div[style*="grid-template-columns:repeat(4"]{grid-template-columns:1fr 1fr !important;}
+
+    /* Knapper */
+    .btn{font-size:13px;padding:10px 18px;}
+    div[style*="display:flex;gap:10px"]{flex-wrap:wrap !important;}
+    div[style*="display:flex;gap:12px"]{flex-wrap:wrap !important;}
+
+    /* Nivå-kort */
+    .level-card{padding:20px 16px !important;}
+
+    /* Tekst-størrelse */
+    h2{font-size:clamp(20px,5vw,28px) !important;}
+    .section-lead{font-size:14px !important;}
+
+    /* Cookie banner */
+    #cookie-consent{padding:16px !important;}
+
+    /* Scroll-card margin */
+    .scroll-card{border-radius:16px !important;margin-top:-16px !important;}
+  }
+  @media(max-width:480px){
+    .footer-inner{grid-template-columns:1fr !important;}
+    .footer-trust{grid-template-columns:1fr !important;}
+    .footer-trust-item{border-right:none !important;border-top:1px solid #4A4540 !important;}
+    .footer-trust-item:first-child{border-top:none !important;}
+    div[style*="grid-template-columns:repeat(4"]{grid-template-columns:1fr !important;}
+    .topbar span:first-child{display:none;}
+  }
+
+  /* Hamburger meny */
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;border:none;background:none;}
+  .hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:all 0.25s;}
+  .mobile-nav{display:none;position:fixed;top:60px;left:0;right:0;bottom:0;background:rgba(255,255,255,0.98);backdrop-filter:blur(12px);z-index:99;padding:24px;flex-direction:column;gap:8px;overflow-y:auto;}
+  .mobile-nav a{display:block;font-size:18px;font-weight:500;color:var(--text);padding:14px 0;border-bottom:1px solid var(--border);}
+  .mobile-nav a:last-child{border-bottom:none;}
+  .mobile-nav .nav-cta{background:var(--accent);color:#fff !important;padding:14px 20px;border-radius:9px;text-align:center;border-bottom:none !important;margin-top:8px;}
+  .mobile-nav.open{display:flex;}
+  @media(max-width:768px){
+    .hamburger{display:flex;}
+  }
+</style>
+
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-XXXXXXXXXX');
+</script>
+<!-- Hotjar tracking - bytt ut 'XXXXXXX' med din Hotjar Site ID -->
+<script>
+(function(h,o,t,j,a,r){
+h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+h._hjSettings={hjid:'XXXXXXX',hjsv:6};
+a=o.getElementsByTagName('head')[0];
+r=o.createElement('script');r.async=1;
+r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+a.appendChild(r);
+})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+</head>
+<body>
+<div class="topbar">
+  <span>📅 <strong>Godkjent måling:</strong> midten av oktober – midten av april (min. 60 dager)</span>
+  <span>🛒 <a href="#">Nettbutikk</a> &nbsp;·&nbsp; 📞 <a href="tel:48280005">48 28 00 05</a> &nbsp;·&nbsp; ✉️ <a href="mailto:post@radon-sorvest.no">post@radon-sorvest.no</a></span>
+</div>
+<nav>
+  <a href="index.html" class="nav-logo"><img src="/bilder/logo.png" alt="Radon Sør-Vest AS"></a>
+  <ul class="nav-links" style="align-items:center;">
+    <li style="display:flex;align-items:center;"><a href="index.html">Hjem</a></li>
+    <li style="display:flex;align-items:center;"><a href="hva-er-radon.html">Radon</a></li>
+    <li class="nav-dropdown" style="display:flex;align-items:center;">
+      <a href="radonmaling.html">Radonmåling ▾</a>
+      <ul class="dropdown-menu">
+        <li><a href="radonmaling.html">Privatperson</a></li>
+        <li><a href="radonmaling-utleier.html">Utleier</a></li>
+        <li><a href="radonmaling-bedrift.html">Bedrifter</a></li>
+      </ul>
+    </li>
+    <li style="display:flex;align-items:center;"><a href="tiltak.html">Tiltak</a></li>
+    <li style="display:flex;align-items:center;"><a href="https://xb0b9f-cm.myshopify.com" target="_blank">Nettbutikk</a></li>
+    <li class="nav-dropdown" style="display:flex;align-items:center;">
+      <a href="om-oss.html">Om oss ▾</a>
+      <ul class="dropdown-menu">
+        <li><a href="om-oss.html#historie">Vår historie</a></li>
+        <li><a href="ansatte.html">Ansatte</a></li>
+      </ul>
+    </li>
+    <li style="display:flex;align-items:center;"><a href="index.html#faq">FAQ</a></li>
+    <li style="display:flex;align-items:center;"><a href="befaring.html" class="nav-cta">Bestill befaring</a></li>
+  </ul>
+
+  <button class="hamburger" onclick="toggleMobileNav()" aria-label="Meny">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html">Hjem</a>
+  <a href="hva-er-radon.html">Radon</a>
+  <a href="radonmaling.html">Radonmåling</a>
+  <a href="radonmaling-utleier.html" style="padding-left:16px;font-size:16px;">— Utleier</a>
+  <a href="radonmaling-bedrift.html" style="padding-left:16px;font-size:16px;">— Bedrifter</a>
+  <a href="tiltak.html">Tiltak</a>
+  <a href="https://xb0b9f-cm.myshopify.com" target="_blank">Nettbutikk</a>
+  <a href="om-oss.html">Om oss</a>
+  <a href="ansatte.html" style="padding-left:16px;font-size:16px;">— Ansatte</a>
+  <a href="index.html#faq">FAQ</a>
+  <a href="befaring.html" class="nav-cta">Bestill befaring</a>
+</div>
+<script>
+function toggleMobileNav(){
+  var n=document.getElementById('mobileNav');
+  n.classList.toggle('open');
+  document.body.style.overflow=n.classList.contains('open')?'hidden':'';
+}
+// Lukk ved klikk utenfor
+document.addEventListener('click',function(e){
+  var nav=document.getElementById('mobileNav');
+  var btn=document.querySelector('.hamburger');
+  if(nav&&nav.classList.contains('open')&&!nav.contains(e.target)&&!btn.contains(e.target)){
+    nav.classList.remove('open');
+    document.body.style.overflow='';
+  }
+});
+</script>
+
+<!-- HERO, stor, åpen, luftig -->
+<div class="hero main-hero">
+  <div class="hero-bg" style="background-image:url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1600&q=80&auto=format&fit=crop');background-size:cover;background-position:center;filter:brightness(0.22) saturate(0.3);"></div>
+  <div class="hero-inner">
+    <p style="font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent2);margin-bottom:20px;">Radonmåling for privatpersoner</p>
+    <h1>Du kan ikke se, lukte<br>eller smake radon.<br><em style="color:var(--accent2);font-style:normal;">Men du kan måle det.</em></h1>
+    <p class="hero-sub">En enkel sporfilm i posten er alt du trenger. Vi tar oss av resten, analyse, rapport og råd om veien videre.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+      <a href="https://xb0b9f-cm.myshopify.com" target="_blank" class="btn btn-primary" style="font-size:15px;padding:14px 28px;">Bestill sporfilmer</a>
+      <a href="befaring.html" class="btn btn-primary" style="font-size:15px;padding:14px 28px;">Bestill gratis befaring</a>
+    </div>
+  </div>
+</div>
+  
+    </div>
+  </div>
+</section>
+
+<!-- NIVÅER, luftig, tekst-fokusert -->
+<section style="background:var(--surface);padding:100px 0;">
+  <div class="container">
+    <div style="max-width:720px;margin:0 auto;text-align:center;">
+      <div class="section-label" style="text-align:center;">Hva betyr resultatet?</div>
+      <h2 style="font-size:clamp(26px,3.5vw,40px);line-height:1.2;margin-bottom:16px;">Forstå måleresultatet ditt</h2>
+      <p style="font-size:17px;color:var(--muted);line-height:1.8;margin-bottom:56px;">Radonnivå måles i becquerel per kubikkmeter luft (Bq/m³). Resultatet viser gjennomsnittsnivået over måleperioden og forteller deg om boligen din er trygg.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;border-radius:20px;overflow:hidden;">
+      <div style="background:#F0F7F2;padding:48px 36px;">
+        <div style="font-size:42px;font-weight:800;color:#4A8C60;line-height:1;margin-bottom:8px;">0–100</div>
+        <div style="font-size:13px;color:#4A8C60;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:20px;">Bq/m³ · Trygt</div>
+        <p style="font-size:15px;color:#3A6040;line-height:1.7;">Ingen tiltak nødvendig. Radonnivået er innenfor DSAs anbefalte grense. Du kan sove godt.</p>
+      </div>
+      <div style="background:#FDF3EC;padding:48px 36px;">
+        <div style="font-size:42px;font-weight:800;color:var(--accent);line-height:1;margin-bottom:8px;">100–200</div>
+        <div style="font-size:13px;color:var(--accent);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:20px;">Bq/m³ · Tiltak anbefales</div>
+        <p style="font-size:15px;color:#8B3A10;line-height:1.7;">Nivåene er over tiltaksgrensen. Det anbefales å gjennomføre tiltak for å redusere radonkonsentrasjonen.</p>
+      </div>
+      <div style="background:#FEF0EE;padding:48px 36px;">
+        <div style="font-size:42px;font-weight:800;color:#C0392B;line-height:1;margin-bottom:8px;">200+</div>
+        <div style="font-size:13px;color:#C0392B;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:20px;">Bq/m³ · Grenseverdien</div>
+        <p style="font-size:15px;color:#8B1A00;line-height:1.7;">Over grenseverdien. Lovpålagt for utleiere, skoler og barnehager. Sterk anbefaling for private boliger. Ta kontakt, vi hjelper deg.</p>
+      </div>
+    </div>
+    <p style="font-size:13px;color:var(--muted);margin-top:16px;text-align:center;">Kilde: DSA, Direktoratet for strålevern og atomsikkerhet</p>
+  </div>
+</section>
+
+
+<!-- SPORFILM FORKLARING, mørk bakgrunn, luftig -->
+<section style="background:#2C2420;padding:100px 0;">
+  <div class="container">
+    <div class="split reverse">
+      <div>
+        <p style="font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent2);margin-bottom:16px;">Målemetoden</p>
+        <h2 style="font-size:clamp(24px,3vw,38px);color:#fff;line-height:1.2;margin-bottom:24px;">En liten boks.<br>Et stort svar.</h2>
+        <p style="font-size:16px;color:#9A9590;line-height:1.85;margin-bottom:20px;">En sporfilm er en passiv målebrikke på størrelse med en fyrstikkeske. Den registrerer alfastråling fra radon ved å la partiklene etterlate mikroskopiske spor i materialet inne i boksen.</p>
+        <p style="font-size:16px;color:#9A9590;line-height:1.85;margin-bottom:20px;">Etter måleperioden sendes sporfilmen til et akkreditert laboratorium, der sporene forstørres, telles og omregnes til et gjennomsnittlig radonnivå. Sporfilm er den eneste metoden DSA godkjenner for langtidsmåling i boliger.</p>
+        <div class="pull-quote" style="border-left-color:var(--accent2);">
+          <p style="color:#C0BCB8;">"Sporfilm regnes som den tryggeste og mest pålitelige måten å måle radon i boliger og bygninger."</p>
+        </div>
+        <p style="font-size:13px;color:#5A5550;margin-top:8px;">— DSA, Direktoratet for strålevern og atomsikkerhet</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:40px;">
+        <h3 style="color:#fff;font-size:18px;margin-bottom:28px;">Alt som følger med</h3>
+        <div style="display:flex;flex-direction:column;gap:20px;">
+          <div style="display:flex;gap:16px;align-items:flex-start;">
+            <div style="width:8px;height:8px;border-radius:50%;background:var(--accent2);margin-top:7px;flex-shrink:0;"></div>
+            <div><strong style="color:#fff;font-size:15px;">Sporfilmer sendt hjem til deg</strong><p style="color:#7A7570;font-size:14px;margin-top:4px;line-height:1.6;">Komplett måleutstyr levert i posten, klart til bruk.</p></div>
+          </div>
+          <div style="display:flex;gap:16px;align-items:flex-start;">
+            <div style="width:8px;height:8px;border-radius:50%;background:var(--accent2);margin-top:7px;flex-shrink:0;"></div>
+            <div><strong style="color:#fff;font-size:15px;">Enkel instruksjonsveiledning</strong><p style="color:#7A7570;font-size:14px;margin-top:4px;line-height:1.6;">Steg-for-steg guide for riktig plassering, godkjent av DSA.</p></div>
+          </div>
+          <div style="display:flex;gap:16px;align-items:flex-start;">
+            <div style="width:8px;height:8px;border-radius:50%;background:var(--accent2);margin-top:7px;flex-shrink:0;"></div>
+            <div><strong style="color:#fff;font-size:15px;">Gratis returfrakt og analyse</strong><p style="color:#7A7570;font-size:14px;margin-top:4px;line-height:1.6;">Send tilbake i returkonvolutten, laboratoriet tar seg av resten.</p></div>
+          </div>
+          <div style="display:flex;gap:16px;align-items:flex-start;">
+            <div style="width:8px;height:8px;border-radius:50%;background:var(--accent2);margin-top:7px;flex-shrink:0;"></div>
+            <div><strong style="color:#fff;font-size:15px;">Godkjent målerapport</strong><p style="color:#7A7570;font-size:14px;margin-top:4px;line-height:1.6;">Du får en komplett rapport med nivåer og anbefalinger.</p></div>
+          </div>
+        </div>
+        <div style="margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.08);">
+          <a href="https://xb0b9f-cm.myshopify.com" target="_blank" class="btn btn-primary" style="width:100%;text-align:center;display:block;">Bestill i nettbutikken →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FREMGANGSMÅTE, timeline -->
+<section class="prose-section">
+  <div class="container">
+    <div class="split">
+      <div>
+        <div class="section-label">Fremgangsmåte</div>
+        <h2 style="font-size:clamp(26px,3.5vw,40px);line-height:1.2;margin-bottom:16px;">Fra bestilling<br>til rapport</h2>
+        <p style="font-size:16px;color:var(--muted);line-height:1.8;margin-bottom:40px;">Prosessen er enklere enn du tror. Du trenger ingen teknisk kunnskap, vi veileder deg hele veien.</p>
+        <a href="befaring.html" class="btn btn-primary" style="margin-top:8px;">Vil du ha hjelp? Bestill befaring →</a>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-num">1</div>
+          <div class="timeline-body">
+            <h3>Bestill sporfilmer</h3>
+            <p>Gå til nettbutikken og velg antall filmer. DSA anbefaler minst to per bolig — én per rom der familien oppholder seg mest. Ved kjeller eller flere etasjer: én film per etasje.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-num">2</div>
+          <div class="timeline-body">
+            <h3>Plasser dem riktig</h3>
+            <p>Sett sporfilmene 1–2 meter over gulvet i soverom og stue. Unngå vinduer, dører og varmekilder. La dem stå urørt i hele måleperioden, det er det som gir det pålitelige resultatet.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-num">3</div>
+          <div class="timeline-body">
+            <h3>Vent 60 dager</h3>
+            <p>Sporfilmene må stå ute i minimum 60 dager mellom 15. oktober og 15. april. Denne perioden er godkjent av DSA fordi boligen er oppvarmet og vinduer holdes lukket, noe som gir de mest representative nivåene.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-num">4</div>
+          <div class="timeline-body">
+            <h3>Send inn og motta rapport</h3>
+            <p>Legg sporfilmene i returkonvolutten og send dem til laboratoriet. Du mottar en godkjent målerapport med gjennomsnittlig radonnivå. Er nivåene over 100 Bq/m³ kontakter vi deg med råd om neste steg.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMING -->
+<section class="prose-section">
+  <div class="container">
+    <div class="split reverse">
+      <div>
+        <div class="section-label">Riktig tidspunkt</div>
+        <h2 style="font-size:clamp(26px,3.5vw,40px);line-height:1.2;margin-bottom:24px;">Mål om vinteren.<br>Det er ikke tilfeldig.</h2>
+        <p style="font-size:17px;color:var(--muted);line-height:1.85;margin-bottom:20px;">For at en radonmåling skal være godkjent, må den gjennomføres i vinterhalvåret, fra 15. oktober til 15. april. Det er fordi boligen da er oppvarmet, vinduer holdes lukket, og radonnivåene er mest stabile og representative.</p>
+        <p style="font-size:17px;color:var(--muted);line-height:1.85;margin-bottom:20px;">Sporfilmene må stå ute i <strong>minimum 60 dager sammenhengende</strong> for å gi et godkjent årsgjennomsnitt. Kortere målinger kan ikke brukes som dokumentasjon.</p>
+        <p style="font-size:17px;color:var(--muted);line-height:1.85;">En radonmåling bør heller ikke være eldre enn 5 år, og etter bygningsmessige endringer eller endringer i ventilasjon må du alltid måle på nytt.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:20px;">
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:32px;">
+          <div style="font-size:36px;font-weight:800;color:var(--accent);margin-bottom:8px;">15. oktober</div>
+          <div style="font-size:15px;color:var(--muted);">Sesongen åpner, du kan begynne å plassere ut sporfilmene fra denne datoen.</div>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:32px;">
+          <div style="font-size:36px;font-weight:800;color:var(--accent);margin-bottom:8px;">60 dager</div>
+          <div style="font-size:15px;color:var(--muted);">Minimum tid sporfilmene må stå ute for godkjent resultat. Jo lenger, jo mer pålitelig.</div>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:32px;">
+          <div style="font-size:36px;font-weight:800;color:var(--accent);margin-bottom:8px;">15. april</div>
+          <div style="font-size:15px;color:var(--muted);">Sesongen slutter. Sporfilmene må være sendt inn innen denne datoen for å gi et godkjent resultat.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DARK CTA -->
+<section style="padding:0 0 80px;">
+  <div style="max-width:1080px;margin:0 auto;padding:0 24px;box-sizing:border-box;">
+    <div style="background:var(--dark);border-radius:24px;padding:64px;">
+      <div style="display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;">
+        <div>
+          <h2 style="color:#fff;font-size:clamp(24px,3.5vw,40px);margin-bottom:16px;">Klar til å måle?</h2>
+          <p style="color:#9A9590;font-size:16px;line-height:1.7;max-width:500px;">Bestill sporfilmer direkte i nettbutikken, sendes til hele landet. Eller ta kontakt for en gratis befaring der vi hjelper deg med alt fra A til Å.</p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px;">
+            <a href="https://xb0b9f-cm.myshopify.com" target="_blank" class="btn btn-primary" style="font-size:15px;padding:14px 28px;">Gå til nettbutikken</a>
+            <a href="befaring.html" class="btn btn-primary" style="font-size:15px;padding:14px 28px;">Bestill gratis befaring</a>
+          </div>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-size:80px;font-weight:800;color:rgba(255,255,255,0.06);line-height:1;">Bq/m³</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="/bilder/logo.png" alt="Radon Sør-Vest" style="height:56px;width:auto;margin-bottom:8px;">
+      <p>Radon Sør-Vest AS<br>Vår kompetanse er din trygghet. Vi hjelper privatpersoner og bedrifter i Sør-Vest Norge med godkjent radonmåling og effektive tiltak.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Tjenester</h5>
+      <ul>
+        <li><a href="radonmaling.html">Radonmåling</a></li>
+        <li><a href="befaring.html">Radonbefaring</a></li>
+        <li><a href="tiltak.html">Radontiltak</a></li>
+        <li><a href="https://xb0b9f-cm.myshopify.com" target="_blank">Nettbutikk</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Informasjon</h5>
+      <ul>
+        <li><a href="om-oss.html">Om oss</a></li>
+        <li><a href="hva-er-radon.html">Hva er radon?</a></li>
+        <li><a href="index.html#faq">FAQ</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Kontakt</h5>
+      <ul>
+        <li><a href="tel:48280005">48 28 00 05</a></li>
+        <li><a href="mailto:post@radon-sorvest.no">post@radon-sorvest.no</a></li>
+        <li>Jon Torbergssons vei 7</li>
+        <li>4070 Randaberg</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-trust">
+    <div class="footer-trust-item"><div><div class="ft-title">Varer til hele Norge</div><div class="ft-sub">Levering med Posten</div></div></div>
+    <div class="footer-trust-item"><div><div class="ft-title">14 dagers returrett</div><div class="ft-sub">Bomkjøp? Send tilbake</div></div></div>
+    <div class="footer-trust-item"><div><div class="ft-title">Godkjente produkter</div><div class="ft-sub">Ledende, erfarne løsninger</div></div></div>
+    <div class="footer-trust-item"><div><div class="ft-title">Sikker betaling</div><div class="ft-sub">Vipps / Klarna / Kort</div></div></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Radon Sør-Vest AS</span>
+    <span>Vi utfører radonmålinger og tiltak i ulike deler av landet</span>
+  </div>
+</footer>
+
+
+
+
+
+
+<!-- Tidio AI Chatbot - bytt ut URL med din Tidio kode -->
+<script src="//code.tidio.co/XXXXXXXX.js" async></script>
+
+
+<!-- Cookie consent banner -->
+<div id="cookie-consent" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#1A1A18;border-top:2px solid #3A3530;padding:20px 24px;">
+  <div style="max-width:1080px;margin:0 auto;display:flex;flex-direction:column;gap:16px;">
+    <div style="display:flex;align-items:flex-start;gap:16px;flex-wrap:wrap;">
+      <div style="flex:1;min-width:280px;">
+        <p style="color:#E8E4E0;font-size:14px;line-height:1.6;margin:0;">
+          <strong style="color:#fff;">Vi bruker informasjonskapsler (cookies)</strong><br>
+          Vi bruker nødvendige informasjonskapsler for å sikre at nettstedet fungerer korrekt, samt analyse- og markedsføringskapsler for å forbedre brukeropplevelsen. Du kan velge hvilke kategorier du tillater.
+          <a href="#" onclick="document.getElementById('cookie-details').style.display=document.getElementById('cookie-details').style.display==='none'?'block':'none';return false;" style="color:#D4651E;text-decoration:underline;margin-left:6px;font-size:13px;">Les mer</a>
+        </p>
+        <div id="cookie-details" style="display:none;margin-top:12px;font-size:13px;color:#A0A09A;line-height:1.6;">
+          <p style="margin:0 0 8px;"><strong style="color:#C0BCB8;">Nødvendige:</strong> Kreves for at nettsiden skal fungere. Kan ikke deaktiveres.</p>
+          <p style="margin:0 0 8px;"><strong style="color:#C0BCB8;">Analyse:</strong> Hjelper oss å forstå hvordan besøkende bruker nettstedet (f.eks. Google Analytics).</p>
+          <p style="margin:0;"><strong style="color:#C0BCB8;">Markedsføring:</strong> Brukes til å vise relevante annonser og spore effekten av markedsføring.</p>
+        </div>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;flex-shrink:0;">
+        <button onclick="cookieConsent('necessary')" style="background:transparent;border:1px solid #5A5550;color:#C0BCB8;padding:10px 18px;border-radius:8px;font-size:13px;cursor:pointer;white-space:nowrap;">Kun nødvendige</button>
+        <button onclick="cookieConsent('analytics')" style="background:transparent;border:1px solid #5A5550;color:#C0BCB8;padding:10px 18px;border-radius:8px;font-size:13px;cursor:pointer;white-space:nowrap;">Nødvendige + analyse</button>
+        <button onclick="cookieConsent('all')" style="background:#D4651E;border:none;color:#fff;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;">Godta alle</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  try{
+    var c=localStorage.getItem('rsv_consent_v2');
+    if(!c){document.getElementById('cookie-consent').style.display='block';}
+    else{applyConsent(c);}
+  }catch(e){document.getElementById('cookie-consent').style.display='block';}
+})();
+function cookieConsent(level){
+  try{localStorage.setItem('rsv_consent_v2',level);}catch(e){}
+  document.getElementById('cookie-consent').style.display='none';
+  applyConsent(level);
+}
+function applyConsent(level){
+  if(level==='analytics'||level==='all'){
+    window['ga-disable-G-XXXXXXXXXX']=false;
+  } else {
+    window['ga-disable-G-XXXXXXXXXX']=true;
+  }
+}
+</script>
+</body></html>

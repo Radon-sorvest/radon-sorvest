@@ -20,7 +20,6 @@
 })();
 </script>
 <meta charset="UTF-8">
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <meta name="description" content="Bestill gratis radonbefaring fra Radon Sør-Vest. Vi kartlegger boligen din, identifiserer radonkilder og gir deg konkrete råd om tiltak.">
 <link rel="canonical" href="https://radon-sorvest.no/befaring">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -413,7 +412,6 @@ document.addEventListener('click',function(e){
           </div>
           <div class="field form-full"><label>Beskjed</label><textarea rows="4" name="beskjed" placeholder="Fortell gjerne litt om boligen din og eventuelle tidligere målinger..."></textarea></div>
         </div>
-        <div class="cf-turnstile" data-sitekey="0x4AAAAAAEdjldsZ5uO7gZEo" data-theme="light" style="margin-top:16px;margin-bottom:8px;"></div>
         <div style="margin-top:20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
           <button type="submit" class="btn btn-primary">Send bestilling →</button>
           <p class="form-note">Vi behandler dine opplysninger i henhold til vår personvernerklæring.</p>
@@ -479,7 +477,7 @@ document.addEventListener('click',function(e){
   <div class="footer-trust">
     <div class="footer-trust-item"><div><div class="ft-title">Varer til hele Norge</div><div class="ft-sub">Levering med Posten</div></div></div>
     <div class="footer-trust-item"><div><div class="ft-title">14 dagers returrett</div><div class="ft-sub">Bomkjøp? Send tilbake</div></div></div>
-    <div class="footer-trust-item"><div><div class="ft-title">Godkjente produkter</div><div class="ft-sub">Ledende erfarene løsninger</div></div></div>
+    <div class="footer-trust-item"><div><div class="ft-title">Godkjente produkter</div><div class="ft-sub">Ledende, erfarne løsninger</div></div></div>
     <div class="footer-trust-item"><div><div class="ft-title">Sikker betaling</div><div class="ft-sub">Vipps / Klarna / Kort</div></div></div>
   </div>
   <div class="footer-bottom">
@@ -494,11 +492,6 @@ document.addEventListener('click',function(e){
 <script>
 async function handleSubmit(e) {
   e.preventDefault();
-  var token = document.querySelector('[name="cf-turnstile-response"]');
-  if (!token || !token.value) {
-    alert('Vennligst bekreft at du ikke er en robot.');
-    return;
-  }
   var form = document.getElementById('contact-form');
   var data = new FormData(form);
   try {
